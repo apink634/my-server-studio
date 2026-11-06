@@ -2,7 +2,7 @@
 
 ## STUDIO-001 · Launch a tested calculator on an existing server
 
-**Status:** Pending learner scope agreement and actual evidence.
+**Status:**    Adopted existing calculator at https://calc.anncarlos.me; evidence recorded, PR #2 merged to main.
 **Next step:** Confirm your clone with the coach, then follow [Lesson 01](studio/lesson-01.md).
 **Instructor implementation:** [issue #9](https://github.com/kaw393939/373_hosting/issues/9).
 Create your own issue from the [lesson template](.github/ISSUE_TEMPLATE/studio-calculator.md).
@@ -18,10 +18,10 @@ An explicitly agreed adoption of a matching existing deployment is recorded
 as adoption, not a fresh launch. This bounded lesson does not certify the whole
 server baseline or a vulnerability-free image.
 
-- **Public hostname:** Pending.
-- **New launch or adopted deployment, and reason:** Pending.
-- **Own issue / feature branch:** Pending.
-- **Agreed scope or actual access/configuration gap:** Pending.
+- **Public hostname:** https://calc.anncarlos.me
+- **New launch or adopted deployment, and reason:** Adopted an existing deployment (not a new launch). Reason, in my words: "i would adopt the existing calculator because it is less risky since there are fewer steps". The supplied image was already running behind my Traefik before the studio tool was run; `launch` and `verify` recorded `adopted-existing`, `new_launch: false`.
+- **Own issue / feature branch:** [issue #1](https://github.com/apink634/my-server-studio/issues/1); branch `studio-001-calculator`.
+- **Agreed scope or actual access/configuration gap:** Run the supplied calculator image behind my existing Traefik and keep my existing sites working. My original droplet was deleted by mistake and rebuilt on 2026-11-04 on a replacement droplet (167.172.158.254); the instructor confirmed by email that a replacement droplet is fine.
 
 Private SSH targets and configuration stay in ignored local state. Share only
 reviewed, selected evidence; never commit credentials or raw server output.
@@ -30,12 +30,12 @@ reviewed, selected evidence; never commit credentials or raw server output.
 
 | Evidence | Actual result / link |
 |---|---|
-| Prepared Black/Pylint/pytest and real-image browser checks | Not run; full local E2E needs local Docker or actual CI evidence |
-| Hosted image/commit, trusted HTTPS, valid and rejected API cases | Not verified; export selected evidence with `report` |
-| Preservation of unrelated services | Not verified |
+| Prepared Black/Pylint/pytest and real-image browser checks | Black passed. Pylint and pytest failed locally on Windows (os.geteuid, os.chown, signal.SIGHUP do not exist on Windows). Full local E2E not run (no local Docker). CI on PR #2: all 3 jobs green (studio, validate, integration-contract), plus a Node version warning that is not a failure. [run](https://github.com/apink634/my-server-studio/actions/runs/42138793842). |
+| Hosted image/commit, trusted HTTPS, valid and rejected API cases | Verified 2026-11-05 about 7:05 PM Eastern: commit 4600202b…, trusted HTTPS, 6x7=42 (200), divide by zero (400), numeric string (422). See [studio/evidence.json](studio/evidence.json). |
+| Preservation of unrelated services | `verify` preservation check: 5 items unchanged (container identity, state, published ports). My three Apache sites also passed `verify.py` on the server. |
 | Own prediction, check interpretation, browser observation and keep/revise reason | [LEARNING.md](LEARNING.md), Pending; disclose assistance |
 | Accuracy review before publishing learner excerpts | Pending |
-| Actual PR, latest CI, merge and issue closure | Pending |
+| Actual PR, latest CI, merge and issue closure | [PR #2](https://github.com/apink634/my-server-studio/pull/2), [CI run](https://github.com/apink634/my-server-studio/actions/runs/42138793842), closes [issue #1](https://github.com/apink634/my-server-studio/issues/1). Merged to main via PR #2, which closes issue #1. |
 
 Link the exported `studio/evidence.json`, actual CI and issue/PR when available.
 CI does not deploy this server. A fixture, green check, timestamp, closed issue
