@@ -34,8 +34,8 @@ reviewed, selected evidence; never commit credentials or raw server output.
 | Hosted image/commit, trusted HTTPS, valid and rejected API cases | Verified 2026-11-05 about 7:05 PM Eastern: commit 4600202b…, trusted HTTPS, 6x7=42 (200), divide by zero (400), numeric string (422). See [studio/evidence.json](studio/evidence.json). |
 | Preservation of unrelated services | `verify` preservation check: 5 items unchanged (container identity, state, published ports). My three Apache sites also passed `verify.py` on the server. |
 | Own prediction, check interpretation, browser observation and keep/revise reason | [LEARNING.md](LEARNING.md), recorded, AI help disclosed in the file; disclose assistance |
-| Accuracy review before publishing learner excerpts | Pending |
-| Actual PR, latest CI, merge and issue closure | [PR #2](https://github.com/apink634/my-server-studio/pull/2), [CI run](https://github.com/apink634/my-server-studio/actions/runs/42138793842), closes [issue #1](https://github.com/apink634/my-server-studio/issues/1). Merged to main via PR #2, which closes issue #1. |
+| Accuracy review before publishing learner excerpts | Reviewed by me on Nov 5, 2026 after the merge; formatting fixed in [PR #3](https://github.com/apink634/my-server-studio/pull/3). See the Review section of LEARNING.md. |
+| Actual PR, latest CI, merge and issue closure | [PR #2](https://github.com/apink634/my-server-studio/pull/2), [CI run](https://github.com/apink634/my-server-studio/actions/runs/42138793842), closes [issue #1](https://github.com/apink634/my-server-studio/issues/1). Merged to main via PR #2, which closes issue #1. Follow-up fix: PR #3. |
 
 Link the exported `studio/evidence.json`, actual CI and issue/PR when available.
 CI does not deploy this server. A fixture, green check, timestamp, closed issue
